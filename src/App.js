@@ -2,6 +2,7 @@ import "./App.css";
 import { AppBar, Toolbar, Typography, Box} from "@material-ui/core";
 import "fontsource-roboto";
 import { useEffect } from "react";
+import MatrizDeCelulas from "./components/MatrizDeCelulas";
 
 function App() {
   useEffect(
@@ -21,6 +22,7 @@ function App() {
           </Toolbar>
         </AppBar>
       </Box>
+      <MatrizDeCelulas/>
     </>
   );
 }
