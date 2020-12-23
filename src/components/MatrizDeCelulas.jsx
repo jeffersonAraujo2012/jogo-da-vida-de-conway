@@ -1,10 +1,21 @@
 import React from 'react';
 import LinhaDeCelulas from './LinhaDeCelulas';
 
-function MatrizDeCelulas(){
+function MatrizDeCelulas({numLinhas, tamanhoCelula}){
+
+    const arrayLinhas = [];
+    
+    for(let i  = 0; i < numLinhas; i++){
+        arrayLinhas.push(<LinhaDeCelulas key={i}/>)
+    }
+    
     return (
         <div>
-            <LinhaDeCelulas/>
+            {arrayLinhas.map(
+                valor => {
+                    return valor;
+                }
+            )}
         </div>
     );
 }

@@ -1,28 +1,26 @@
 import "./App.css";
-import { AppBar, Toolbar, Typography, Box} from "@material-ui/core";
 import "fontsource-roboto";
 import { useEffect } from "react";
 import MatrizDeCelulas from "./components/MatrizDeCelulas";
+import { CalculosDaMatriz } from "./components/utils/CalculosDaMatriz";
+import NavSuperior from "./components/navegacaoSuperior/NavSuperior";
 
 function App() {
   useEffect(
     () => {
-      const menuBar = document.getElementById("menuBar");
-      console.log(menuBar.offsetHeight);
+      //const larguraDoc = document.documentElement.clientHeight
+      //console.log(menuBar.offsetHeight + " " + CalculosDaMatriz.tamanhoDaCelula(100) + " " + celula.offsetHeight + " " + larguraDoc);
     }
   );
+
+  const tamanhoCelula = CalculosDaMatriz.tamanhoDaCelula(10);
+  const numLinhas = parseInt(CalculosDaMatriz.numeroDeLinhas(tamanhoCelula));
+
+  console.log(tamanhoCelula, numLinhas);
   return (
     <>
-      <Box id="menuBar" className="menuBarSup">
-        <AppBar position="static" color="default">
-          <Toolbar>
-            <Typography variant="h4" component="h3">
-              ::Jogo da Vida de Conway::
-            </Typography>
-          </Toolbar>
-        </AppBar>
-      </Box>
-      <MatrizDeCelulas/>
+      <NavSuperior/>
+      <MatrizDeCelulas numLinhas={numLinhas} tamanhoCelula={tamanhoCelula}/>
     </>
   );
 }

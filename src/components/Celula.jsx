@@ -1,7 +1,7 @@
 import React from 'react';
 import "./estiloCelula.css"
 
-function Celula({status}){
+function Celula({status,tamanho}){
 
     let celula;
 
@@ -9,11 +9,10 @@ function Celula({status}){
         celula = <div className="celula" style={{backgroundColor: "white"}}></div>
     }
     else {
-        celula = <div className="celula" style={{backgroundColor: "black"}}></div>
+        celula = <div className="celula" style={{backgroundColor: "black", width: tamanho}}></div>
     }
-    console.log(celula)
+
     return(
-        
         celula
     );
 }
