@@ -4,38 +4,39 @@ import "./estiloCelula.css";
 
 function Celula() {
   const { tamanhoCelula } = useContext(Dimensoes);
-  const [status, setStatus] = useState(true);
+  const [status, setStatus] = useState({main: "black", aux: "black"});
   let celula;
 
-  function handleMouseHover(evento) {
-    console.log(evento.target);
+  function colorToggle(evento) {
+    if (evento.target.style.backgroundColor === "white") {
+        setStatus({main: "black", aux: "black"});
+    } else {
+        setStatus({main: "white", aux: "white"});
+    }
   }
 
-  if (status) {
-    celula = (
-      <div
-        className="celula"
-        style={{
-          backgroundColor: "white",
-          width: tamanhoCelula + "vw",
-          height: tamanhoCelula + "vw",
-        }}
-        onClick={handleMouseHover}
-      ></div>
-    );
-  } else {
-    celula = (
-      <div
-        className="celula"
-        style={{
-          backgroundColor: "black",
-          width: tamanhoCelula + "vw",
-          height: tamanhoCelula + "vw",
-        }}
-        onClick={handleMouseHover}
-      ></div>
-    );
+  function handleMouseOver(evento) {
+    const novoEstado = {...status,main: "blue"}
+    setStatus(novoEstado);
   }
+  function handleMouseLeaver(evento) {
+    const novoEstado = {...status,main: status.aux}
+    setStatus(novoEstado);
+  }
+
+  celula = (
+    <div
+      className="celula"
+      style={{
+        backgroundColor: status.main,
+        width: tamanhoCelula + "vw",
+        height: tamanhoCelula + "vw",
+      }}
+      onMouseEnter={handleMouseOver}
+      onMouseLeave={handleMouseLeaver}
+      onClick={colorToggle}
+    ></div>
+  );
 
   return celula;
 }
