@@ -11,7 +11,6 @@ function App() {
     //const larguraDoc = document.documentElement.clientHeight
     //console.log(menuBar.offsetHeight + " " + CalculosDaMatriz.tamanhoDaCelula(100) + " " + celula.offsetHeight + " " + larguraDoc);
   });
-  
   const celulasPorLinha = 100;
   const tamanhoCelula = CalculosDaMatriz.tamanhoDaCelula(celulasPorLinha);
   const numLinhas = parseInt(CalculosDaMatriz.numeroDeLinhas(tamanhoCelula));

@@ -8,7 +8,7 @@ function MatrizDeCelulas(){
     const arrayLinhas = [];
     
     for(let i  = 0; i < numLinhas; i++){
-        arrayLinhas.push(<LinhaDeCelulas key={i}/>)
+        arrayLinhas.push(<LinhaDeCelulas key={i} index={i}/>)
     }
     
     return (

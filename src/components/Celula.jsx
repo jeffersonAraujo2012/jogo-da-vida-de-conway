@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import Dimensoes from "./contextos/dimensoes";
 import "./estiloCelula.css";
 
-function Celula() {
+function Celula({linha,coluna}) {
   const { tamanhoCelula } = useContext(Dimensoes);
   const [status, setStatus] = useState({main: "black", aux: "black"});
   let celula;
@@ -26,15 +26,16 @@ function Celula() {
 
   celula = (
     <div
-      className="celula"
-      style={{
-        backgroundColor: status.main,
-        width: tamanhoCelula + "vw",
-        height: tamanhoCelula + "vw",
-      }}
-      onMouseEnter={handleMouseOver}
-      onMouseLeave={handleMouseLeaver}
-      onClick={colorToggle}
+        id = {linha.toString()+coluna}
+        className="celula"
+        style={{
+            backgroundColor: status.main,
+            width: tamanhoCelula + "vw",
+            height: tamanhoCelula + "vw",
+        }}
+        onMouseEnter={handleMouseOver}
+        onMouseLeave={handleMouseLeaver}
+        onClick={colorToggle}
     ></div>
   );
 
