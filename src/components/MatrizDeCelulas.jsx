@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import Dimensoes from './contextos/dimensoes';
 import LinhaDeCelulas from './LinhaDeCelulas';
 
-function MatrizDeCelulas({numLinhas, tamanhoCelula}){
+function MatrizDeCelulas(){
 
+    const {numLinhas} = useContext(Dimensoes);
     const arrayLinhas = [];
     
     for(let i  = 0; i < numLinhas; i++){
-        arrayLinhas.push(<LinhaDeCelulas key={i} tamanhoCelula={tamanhoCelula}/>)
+        arrayLinhas.push(<LinhaDeCelulas key={i}/>)
     }
     
     return (
