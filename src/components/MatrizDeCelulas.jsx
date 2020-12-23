@@ -6,7 +6,7 @@ function MatrizDeCelulas({numLinhas, tamanhoCelula}){
     const arrayLinhas = [];
     
     for(let i  = 0; i < numLinhas; i++){
-        arrayLinhas.push(<LinhaDeCelulas key={i}/>)
+        arrayLinhas.push(<LinhaDeCelulas key={i} tamanhoCelula={tamanhoCelula}/>)
     }
     
     return (
